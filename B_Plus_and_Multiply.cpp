@@ -13,6 +13,7 @@ int main() {
         bool ok = false;
 
         if (a == 1) {
+            // Only additions matter
             if ((n - 1) % b == 0) ok = true;
         } else {
             long long cur = 1;
@@ -21,12 +22,12 @@ int main() {
                     ok = true;
                     break;
                 }
-                if (cur > n / a) break; 
+                if (cur > n / a) break; // avoid overflow
                 cur *= a;
             }
         }
 
-        cout << (ok ? "Yes" : "No")<<endl;
+        cout << (ok ? "Yes\n" : "No\n");
     }
     return 0;
 }
