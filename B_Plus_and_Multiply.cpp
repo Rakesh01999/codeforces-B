@@ -1,39 +1,32 @@
-#include<bits/stdc++.h>
-using  namespace  std;
-#define ll long long 
-int main()
-{
-    int t;cin>>t;
-    while(t--)
-    {
-        ll n,a,b;cin>>n>>a>>b;
-        if(n==1 || b==1 || n%b==1)
-            cout<<"Yes"<<endl;
-        else if(a==1)
-        {
-            if(n%b==1)
-                cout<<"Yes"<<endl;
-            else 
-                cout<<"No"<<endl;
-        }
-        else{
-            int ans=0, i=0;
-            ll x=a;
-            while(pow(a,i)<=n)
-            {
-                ll z=n - pow(a,i);
-                if(z%b==0)
-                {
-                    ans=1;
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t; 
+    cin >> t;
+    while (t--) {
+        long long n, a, b;
+        cin >> n >> a >> b;
+        bool ok = false;
+
+        if (a == 1) {
+            if ((n - 1) % b == 0) ok = true;
+        } else {
+            long long cur = 1;
+            while (cur <= n) {
+                if ((n - cur) % b == 0) {
+                    ok = true;
                     break;
                 }
-                i++;
+                if (cur > n / a) break; 
+                cur *= a;
             }
-            if(ans==1)
-                cout<<"Yes"<<endl;
-            else 
-                cout<<"No"<<endl;
         }
-    }
-}
 
+        cout << (ok ? "Yes" : "No")<<endl;
+    }
+    return 0;
+}
