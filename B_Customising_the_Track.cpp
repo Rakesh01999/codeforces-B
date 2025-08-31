@@ -1,25 +1,24 @@
-#include<bits/stdc++.h>
-using  namespace  std;
+#include <bits/stdc++.h>
+using namespace std;
 
-#define ll long long
-
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    ll t;cin>>t;
-    while(t--)
-    {
-        ll n;cin>>n;
-        ll sum=0,x;
-        for(int i=0;i<n;i++)
-        {
-            cin>>x;
-            sum+=x;
-        }
-        ll z=sum%n;
-        ll ans=(n-z)*z;
-        cout<<ans<<endl;
-    }
-}
 
+    int t;
+    cin >> t;
+    while (t--) {
+        long long n;
+        cin >> n;
+        vector<long long> a(n);
+        long long sum = 0;
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+            sum += a[i];
+        }
+
+        long long r = sum % n;
+        cout << r * (n - r) << endl;
+    }
+    return 0;
+}
