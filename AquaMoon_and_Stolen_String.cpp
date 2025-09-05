@@ -1,36 +1,40 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include<bits/stdc++.h>
+using  namespace  std;
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    int t; cin >> t;
-    while(t--) {
-        int n, m;cin >> n >> m;
-        vector<string> original(n), remaining(n - 1);
-
-        for (int i = 0; i < n; i++) 
-            cin >> original[i];
-        for (int i = 0; i < n - 1; i++) 
-            cin >> remaining[i];
-
-        string stolen(m, ' ');
-
-        for (int col = 0; col < m; col++) {
-            map<char, int> freq;
-            for (int i = 0; i < n; i++)
-                freq[original[i][col]]++;
-            for (int i = 0; i < n - 1; i++) 
-                freq[remaining[i][col]]--;
-            for (auto it = freq.begin(); it != freq.end(); ++it) {
-                if (it->second > 0) {
-                    stolen[col] = it->first;
+int main()
+{
+    int t;cin>>t;
+    while(t--)
+    {
+        int n,m;cin>>n>>m;
+        n=2*n-1;
+        string s[n+2];
+        for(int i=0;i<n;i++)
+        {
+            cin>>s[i];
+        }
+        string ans="";
+        for(int i=0;i<m;i++)
+        {
+            map<char,int>mp;
+            for(int j=0;j<n;j++)
+            {
+                if(mp[s[j][i]]==0)mp[s[j][i]]=1;
+                else mp[s[j][i]]=0;
+            }
+            for(auto it: mp)
+            {
+                if(it.second!=0)
+                {
+                    ans+=it.first;
                     break;
                 }
             }
         }
-        cout << stolen << "\n";
+        cout<<ans<<endl;
     }
+
     return 0;
 }
+
+
