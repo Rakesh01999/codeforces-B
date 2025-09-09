@@ -25,7 +25,7 @@ int main() {
 
         int M = usable.size();
         
-        int usableSize = M % k;
+        int usableSize = M - (M % k);
 
         vector<int> ans(n, 0);
         
@@ -37,7 +37,7 @@ int main() {
             cout << ans[i] << " ";
         cout << endl;
     }
-    
+
     return 0;
 }
 
