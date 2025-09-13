@@ -11,12 +11,12 @@ bool isSuperior(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    int t;
-    cin >> t;
+    int t;cin >> t;
     while (t--) {
-        int n;
-        cin >> n;
+        int n;cin >> n;
         vector<vector<int>> athlete(n, vector<int>(5));
         for (int i = 0; i < n; ++i)
             for (int j = 0; j < 5; ++j)
