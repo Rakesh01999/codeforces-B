@@ -5,22 +5,25 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t;cin >> t ;
+    int t;
+    cin >> t;
 
     while (t--) {
-        int n ;cin >> n;
+        int n;
+        cin >> n;
         vector<int> a(n+1);
-        for (int i = 1; i <= n; i++) 
-            cin >> a[i];
+        for (int i = 1; i <= n; i++) cin >> a[i];
 
-        vector<array<int, 3>> ops;
-        
+        vector<array<int, 3>> ops; // store operations (l, r, d)
+
         for (int i = 1; i < n; i++) {
+            // find index of minimum from i..n
             int j = i;
             for (int k = i; k <= n; k++) {
                 if (a[k] < a[j]) j = k;
             }
             if (j != i) {
+                // rotate left segment [i..j] by (j-i)
                 int d = j - i;
                 ops.push_back({i, j, d});
                 rotate(a.begin() + i, a.begin() + j, a.begin() + j + 1);
@@ -28,14 +31,11 @@ int main() {
         }
 
         cout << ops.size() << endl ;
-        
         for (auto &op : ops) {
             cout << op[0] << " " << op[1] << " " << op[2] << endl ;
         }
     }
 
+    
     return 0;
 }
-
-
-
