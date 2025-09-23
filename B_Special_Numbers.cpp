@@ -18,19 +18,19 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     
-    int t; cin >> t;
+    int t;
+    cin >> t;
     while (t--) {
         ll n, k;
         cin >> n >> k;
         ll ans = 0;
-        ll power = 1; 
+        ll power = 1;  // n^0 initially
         while (k > 0) {
             if (k & 1) ans = (ans + power) % MOD;
             power = (power * n) % MOD;
             k >>= 1;
         }
-        cout << ans % MOD << endl ;
+        cout << ans % MOD << "\n";
     }
-
     return 0;
 }
