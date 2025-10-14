@@ -30,7 +30,7 @@ int main(){
         cout<<ans<<ans2<<endl;
     }
 
-return 0;
+    return 0;
 }
 
  
