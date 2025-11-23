@@ -1,32 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
+using ll = long long;
 
-int main(){
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int t;cin >> t;
-
-    while(t--){
+    while (t--) {
         ll l, r, k;cin >> l >> r >> k;
 
-        if(l == r){
-            if(l == 1) cout << "NO\n";
+        if (l == r) {
+            if (l == 1) cout << "NO\n"; 
             else cout << "YES\n";
             continue;
         }
 
-        ll odd = ((r + 1) / 2) - (l / 2);
+        ll count_odd = (r + 1) / 2 - (l / 2);
 
-        ll needed = odd / 2;
-        
-        if(needed <= k) 
+        if (k >= count_odd) 
             cout << "YES\n";
-        else
+        else 
             cout << "NO\n";
     }
+
     
     return 0;
 }
-
